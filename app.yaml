@@ -1,45 +1,52 @@
-# Instruct the server to serve up index.html for any URL's that don't otherwise end in a file extension.
-# Replace application: {gae-starter-kit} with the project name you chose.
-
-application: gae-starter-kit
-version: 1
 runtime: python27
-api_version: 1
 threadsafe: yes
 
 handlers:
+
 - url: /bower_components
-  static_dir: build/unbundled/bower_components
+  static_dir: bower_components
+  secure: always
+
+- url: /css
+  static_dir: css
+  secure: always
+
+- url: /elements
+  static_dir: elements
   secure: always
 
 - url: /images
-  static_dir: build/unbundled/images
+  static_dir: images
   secure: always
 
-- url: /src
-  static_dir: build/unbundled/src
+- url: /js
+  static_dir: js
   secure: always
 
-- url: /service-worker.js
-  static_files: build/unbundled/service-worker.js
-  upload: build/unbundled/service-worker.js
+- url: /humans.txt
+  static_files: humans.txt
+  upload: humans.txt
   secure: always
 
 - url: /manifest.json
-  static_files: build/unbundled/manifest.json
-  upload: build/unbundled/manifest.json
+  static_files: manifest.json
+  upload: manifest.json
+  mime_type: application/manifest+json
   secure: always
 
-- url: /.*
-  static_files: build/unbundled/index.html
-  upload: build/unbundled/index.html
-  secure: always
+- url: /
+  static_files: index.html
+  upload: index\.html
 
 skip_files:
-- ^(.*/)?#.*#$
-- ^(.*/)?.*~$
-- ^(.*/)?.*\.py[co]$
-- ^(.*/)?.*/RCS/.*$
-- ^(.*/)?\..*$
-- ^(.*/)?\.bak$
-- ^node_modules/(?!node\.js$).*
+  - ^(.*/)?#.*#$
+  - ^(.*/)?.*~$
+  - ^(.*/)?.*\.py[co]$
+  - ^(.*/)?.*\.md$
+  - ^(.*/)?.*\.graffle$
+  - ^(.*/)?.*/RCS/.*$
+  - ^(.*/)?\..*$
+  - gulpfile.js
+  - test*
+  - bower_components/[^/]+/bower_components/.*$
+  - bower_components/(.+/)+(test/|demo/|README|AUTHORS|CONTRIBUTING|PATENTS|Makefile)
