@@ -24,9 +24,17 @@ handlers:
   upload: build/bundled/manifest.json
   secure: always
 
-- url: /.*
-  static_files: build/bundled/index.html
-  upload: build/bundled/index.html
+- url: /(.*).(html|js|json|css)
+  static_files: \1.\2
+  upload: (.*)\.(html|js|json|css)
+  secure: always
+
+- url: /$
+  static_files: index.html
+  upload: index\.html
+  http_headers:
+    Link: '</elements/elements.js>; rel=preload; as=script, </scripts/bundle.js>; rel=preload; as=script, </styles/app.css>; rel=preload; as=style'
+    # Access-Control-Allow-Origin: "*"
   secure: always
 
 skip_files:
