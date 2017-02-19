@@ -3,52 +3,37 @@ threadsafe: yes
 
 handlers:
 - url: /bower_components
-  static_dir: build/bundled/bower_components
+  static_dir: build/unbundled/bower_components
   secure: always
 
 - url: /images
-  static_dir: build/bundled/images
+  static_dir: build/unbundled/images
   secure: always
 
 - url: /src
-  static_dir: build/bundled/src
+  static_dir: build/unbundled/src
   secure: always
 
 - url: /service-worker.js
-  static_files: build/bundled/service-worker.js
-  upload: build/bundled/service-worker.js
+  static_files: build/unbundled/service-worker.js
+  upload: build/unbundled/service-worker.js
   secure: always
 
 - url: /manifest.json
-  static_files: build/bundled/manifest.json
-  upload: build/bundled/manifest.json
+  static_files: build/unbundled/manifest.json
+  upload: build/unbundled/manifest.json
   secure: always
 
-- url: /(.*).(html|js|json|css)
-  static_files: \1.\2
-  upload: (.*)\.(html|js|json|css)
-  secure: always
-
-- url: /$
-  static_files: index.html
-  upload: index\.html
-  http_headers:
-    Link: '</elements/elements.js>; rel=preload; as=script, </scripts/bundle.js>; rel=preload; as=script, </styles/app.css>; rel=preload; as=style'
-    # Access-Control-Allow-Origin: "*"
+- url: /.*
+  static_files: build/unbundled/index.html
+  upload: build/unbundled/index.html
   secure: always
 
 skip_files:
-- ^(.*/)?app\.yaml
-- ^(.*/)?app\.yml
-- ^(.*/)?index\.yaml
-- ^(.*/)?index\.yml
-- ^(.*/)?bower\.json
-- ^(.*/)?#.*#
-- ^(.*/)?.*~
-- ^(.*/)?.*\.py[co]
-- ^(.*/)?.*/RCS/.*
-- ^(.*/)?\..*
-- ^(.*/)?.*\.bak$
-- ^(.*/)?node_modules/.*
-- ^(.*/).md|markdown
-- ^(.*/)LICENSE
+- ^(.*/)?#.*#$
+- ^(.*/)?.*~$
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*/RCS/.*$
+- ^(.*/)?\..*$
+- ^(.*/)?\.bak$
+- ^node_modules/(?!node\.js$).*
