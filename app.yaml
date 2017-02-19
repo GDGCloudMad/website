@@ -1,4 +1,7 @@
+application: website-159123
+version: 1
 runtime: python27
+api_version: 1
 threadsafe: yes
 
 handlers:
@@ -28,29 +31,3 @@ handlers:
   static_files: build/bundled/index.html
   upload: build/bundled/index.html
   secure: always
-  
-skip_files:
-- ^(.*/)?\.zip$
-- ^(.*/)?\.bat$
-- ^(.*/)?\.sh$
-- ^(.*/)?\.md$
-- ^(.*/)?app\.yaml
-- ^(.*/)?app\.yml
-- ^(.*/)?#.*#
-- ^(.*/)?.*~
-- ^(.*/)?.*\.py[co]
-- ^(.*/)?.*/RCS/.*
-- ^(.*/)?\..*
-- ^(.*/)?tests$
-- ^(.*/)?test$
-- ^(.*/)grunt\.js
-- ^(.*/)node_modules/(.*/)?
-- ^(.*/)bower_components/(.*/)?
-- ^scripts/(.*/)?
-- ^test/(.*/)?
-- ^README\..*
-- \.gitignore
-- ^\.git/.*
-- \.*\.lint$
-- ^fabfile\.py
-- ^testrunner\.py
