@@ -9,8 +9,6 @@ const jsonmin = require('gulp-jsonmin');
 const mergeStream = require('merge-stream');
 const polymerBuild = require('polymer-build');
 const uglify = require('gulp-uglify');
-
-const sourcesHtmlSplitter = new polymerBuild.HtmlSplitter();
 const buildDirectory = 'build';
 
 /**
@@ -31,15 +29,13 @@ function build() {
       .then(() => {
         // Okay, now let's get your source files
         let sourcesStream = polymerProject.sources()
-          .pipe(sourcesHtmlSplitter.split())
           .pipe(gulpif(/\.js$/, uglify()))
           // .pipe(gulpif(/\.css$/, cssSlam()))
           .pipe(gulpif(/\.html$/, htmlmin({
             collapseWhitespace: true
           })))
           .pipe(gulpif(/\.(png|gif|jpg|svg)$/, imagemin()))
-          .pipe(gulpif(/\.json$/, jsonmin()))
-          .pipe(sourcesHtmlSplitter.rejoin());
+          .pipe(gulpif(/\.json$/, jsonmin()));
 
         // Okay, now let's do the same to your dependencies
         let dependenciesStream = polymerProject.dependencies();
