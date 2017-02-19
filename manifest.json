@@ -1,0 +1,6 @@
+{
+  "name": "gdgCloud",
+  "short_name": "gdgCloud",
+  "start_url": "/",
+  "display": "standalone"
+}
