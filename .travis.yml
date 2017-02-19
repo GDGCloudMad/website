@@ -27,4 +27,4 @@ deploy:
   keyfile: Website-d2db09424cbb.json
   project: website-159123
   default: true
-  on: develop
+  on: master
