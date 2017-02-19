@@ -1,31 +1,9 @@
-# \<gdgCloud\>
+# \<gdgCloudMadrid\> [![Build Status](https://travis-ci.org/GDGCloudMad/website.svg?branch=master)](https://travis-ci.org/GDGCloudMad/website)
 
 
+[![Build history for master branch](https://buildstats.info/travisci/chart/GDGCloudMad/website?branch=master&buildCount=50)](https://travis-ci.org/GDGCloudMad/website/branches)
 
-## Install the Polymer-CLI
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
+## Viewing GDGCloud Madrid
 
-## Viewing Your Application
-
-```
-$ polymer serve
-```
-
-## Building Your Application
-
-```
-$ polymer build
-```
-
-This will create a `build/` folder with `bundled/` and `unbundled/` sub-folders
-containing a bundled (Vulcanized) and unbundled builds, both run through HTML,
-CSS, and JS optimizers.
-
-You can serve the built versions by giving `polymer serve` a folder to serve
-from:
-
-```
-$ polymer serve build/bundled
-```
-
+Go to [http://gdgcloudmadrid.com/](http://gdgcloudmadrid.com/)

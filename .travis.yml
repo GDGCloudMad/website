@@ -13,14 +13,12 @@ branches:
 before_install:
   - openssl aes-256-cbc -K $encrypted_638931912265_key -iv $encrypted_638931912265_iv -in Website-d2db09424cbb.json.enc -out Website-d2db09424cbb.json -d
 install:
-  - yarn install
-  - yarn global add bower
+  - npm install bower
+  - npm install -g polymer-cli
   - bower install
-script:
-  - yarn run lint
   # - yarn run test
 before_deploy:
-  - yarn run build
+  - polymer build
 deploy:
   provider: gae
   skip_cleanup: true
