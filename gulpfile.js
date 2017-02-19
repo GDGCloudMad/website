@@ -10,9 +10,6 @@ const mergeStream = require('merge-stream');
 const polymerBuild = require('polymer-build');
 const uglify = require('gulp-uglify');
 
-const swPrecacheConfig = require('./sw-precache-config.js');
-const polymerJson = require('./polymer.json');
-const polymerProject = new polymerBuild.PolymerProject(polymerJson);
 const sourcesHtmlSplitter = new polymerBuild.HtmlSplitter();
 const buildDirectory = 'build';
 
