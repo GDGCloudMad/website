@@ -1,0 +1,17 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/gdgCloud-app/gdgCloud-app.html",
+  "fragments": [
+    "src/gdgCloud-app/gdgCloud-app.html"
+  ],
+  "sources": [
+    "images/**/*",
+    "src/**/*",
+    "bower.json"
+  ],
+  "extraDependencies": [
+    "bower_components/webcomponentsjs/webcomponents-lite.min.js",
+    "LICENSE.txt",
+    "manifest.json"
+  ]
+}

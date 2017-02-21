@@ -1,0 +1,36 @@
+language: node_js
+sudo: required
+dist: trusty
+node_js:
+  - '6'
+cache:
+  yarn: true
+  directories:
+    - node_modules
+branches:
+  except:
+    - /^v\d/
+install:
+  - yarn install
+  - yarn global add bower
+  - bower install
+#script:
+  #- yarn run lint
+  # - yarn run test
+before_deploy:
+  - yarn run build
+deploy:
+  - provider: firebase
+    edge: true
+    skip_cleanup: true
+    project: gdgcloudmadrid-dev
+    token: $FIREBASE_TOKEN
+    on:
+      branch: develop
+  - provider: firebase
+    edge: true
+    skip_cleanup: true
+    project: gdgcloudmadrid
+    token: $FIREBASE_TOKEN
+    on:
+      branch: master
