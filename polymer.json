@@ -1,17 +1,16 @@
 {
-  "entrypoint": "index.html",
   "shell": "src/gdgCloud-app/gdgCloud-app.html",
   "fragments": [
     "src/gdgCloud-app/gdgCloud-app.html"
   ],
   "sources": [
-    "images/**/*",
+    "data/**/*",
     "src/**/*",
-    "bower.json"
+    "images/**/*",
+    "manifest.json",
+    "sw-imported.js"
   ],
-  "extraDependencies": [
-    "bower_components/webcomponentsjs/webcomponents-lite.min.js",
-    "LICENSE.txt",
-    "manifest.json"
-  ]
+  "builds": [{
+    "preset": "es5-bundled"
+  }]
 }

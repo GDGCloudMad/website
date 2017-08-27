@@ -1,6 +1,21 @@
 {
- "name": "gdgCloud",
- "short_name": "gdgCloud",
- "start_url": "/",
- "display": "standalone"
+ "name": "GDG Cloud Madrid Website",
+ "short_name": "gdgCloudMadrid",
+ "icons": [{
+    "src": "/images/logos/p-logo-32.png",
+    "type": "image/png",
+    "sizes": "32x32"
+  }, {
+    "src": "/images/logos/p-logo-192.png",
+    "type": "image/png",
+    "sizes": "192x192"
+  }, {
+    "src": "/images/logos/p-logo-512.png",
+    "type": "image/png",
+    "sizes": "512x512"
+  }],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#eceff1",
+  "theme_color": "#64B5F7"
 }

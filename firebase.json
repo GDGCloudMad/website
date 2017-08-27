@@ -1,9 +1,6 @@
 {
   "hosting": {
-    "public": "build",
-    "ignore": [
-      "bower.json"
-    ],
+    "public": "build/es5-bundled",
     "rewrites": [
       {
         "source": "**/!(*.js|*.html|*.css|*.json|*.svg|*.png|*.jpg|*.jpeg)",
