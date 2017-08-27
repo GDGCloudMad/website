@@ -1,8 +1,11 @@
 {
-  "name": "gdgCloud",
+  "name": "gdg-cloud-madrid-website",
   "private": true,
   "dependencies": {
-    "app-layout": "class",
+    "app-layout ": "polymerelements/app-layout#^2.0.1",
+    "font-roboto": "polymerelements/font-roboto#^1.0.3",
+    "iron-ajax": "polymerelements/iron-ajax#^2.0.5",
+    "paper-card ": "polymerelements/paper-card#^2.0.0",
     "polymer": "2"
   }
 }
