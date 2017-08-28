@@ -1,7 +1,7 @@
 {
-  "shell": "src/gdgcloud-list.html",
+  "shell": "src/gdgcloud-app.html",
   "fragments": [
-    "src/gdgcloud-list.html"
+    "src/gdgcloud-app.html"
   ],
   "sources": [
     "data/**/*",

@@ -1,5 +1,8 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
 
-<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymer/lib/elements/dom-repeat.html">
+
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 
 <link rel="import" href="../bower_components/paper-card/paper-card.html">
 
@@ -7,8 +10,7 @@
 <link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
 <link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
-
-<dom-module id="gdgcloud-list">
+<dom-module id="gdgcloud-app">
   <template>
     <style>
       app-header {
@@ -85,15 +87,6 @@
         color: #999;
       }
 
-      paper-fab {
-        position: fixed;
-        right: 24px;
-        bottom: 24px;
-
-        --paper-fab-background: #EF5458;
-        --paper-fab-keyboard-focus-background: #DF4448;
-      }
-
       @media (max-width: 960px) {
         .content {
           max-width: 800px;
@@ -129,8 +122,8 @@
         }
       }
     </style>
-
-    <!-- main panel -->
+      
+      <!-- main panel -->
     <app-header-layout>
 
       <app-header effects="resize-title" condenses fixed shadow slot="header">
@@ -144,27 +137,41 @@
       </app-header>
 
       <div class="content">
-        <template is="dom-repeat" items="{{projects}}"><!-- No empty text node
-        --><a href="{{item.url}}" class="card-container">
-            <paper-card image="{{item.image}}">
-              <div class="card-content">
-                <h2>{{item.name}}</h2>
-                <p><span>{{item.date}}</span></p>
-              </div>
-            </paper-card>
-          </a><!-- No empty text node
-      --></template>
+        <iron-ajax url="../data/projects.json" auto handle-as="json" last-response="{{projects}}"></iron-ajax>
+        <div>
+          <dom-repeat items="[[projects]]">
+            <template>
+              <a href="{{item.url}}" class="card-container">
+                <paper-card image="{{item.image}}" elevation="1">
+                  <div class="card-content">
+                    <h2>{{item.name}}</h2>
+                    <p><span>{{item.date}}</span></p>
+                  </div>
+                </paper-card>
+              </a>
+            </template>
+          </dom-repeat>
+        </div>
+      
       </div>
 
     </app-header-layout>
+
   </template>
 
   <script>
-    Polymer({
-        is: 'gdgcloud-list',
-        properties: {
-          projects: Object
-        }
-    });
+    class GdgcloudApp extends Polymer.Element {
+      static get is() { return 'gdgcloud-app'; }
+      static get properties() {
+        return {
+          projects: {
+            type: Object
+          }
+        };
+      }
+    }
+    window.customElements.define(GdgcloudApp.is, GdgcloudApp);
   </script>
+
 </dom-module>
+
