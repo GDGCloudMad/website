@@ -3,8 +3,63 @@
     "public": "build/es5-bundled",
     "rewrites": [
       {
-        "source": "**/!(*.js|*.html|*.css|*.json|*.svg|*.png|*.jpg|*.jpeg)",
+        "source": "/schedule",
         "destination": "/index.html"
+      },
+      {
+        "source": "/speakers",
+        "destination": "/index.html"
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/codelabs",
+        "destination": "https://codelabs.developers.google.com/next17",
+        "type": 302
+      },
+      {
+        "source": "/video-embed",
+        "destination": "https://www.youtube.com/embed/MW9VCYgSxlQ",
+        "type": 302
+      }
+    ],
+    "trailingSlash": false,
+    "headers": [
+      {
+        "source": "/",
+        "headers": [
+          {
+            "key": "Link",
+            "value": "</bower_components/webcomponentsjs/webcomponents-loader.js>;rel=preload;as=script,</bower_components/webcomponentsjs/custom-elements-es5-adapter.js>;rel=preload;as=script,</elements/polymer-summit.html>;rel=preload;as=document"
+          }
+        ]
+      },
+      {
+        "source": "/schedule",
+        "headers": [
+          {
+            "key": "Link",
+            "value": "</bower_components/webcomponentsjs/webcomponents-loader.js>;rel=preload;as=script,</bower_components/webcomponentsjs/custom-elements-es5-adapter.js>;rel=preload;as=script,</elements/polymer-summit.html>;rel=preload;as=document,</elements/schedule-page.html>;rel=preload;as=document,</data/schedule.json>;rel=preload"
+          }
+        ]
+      },
+      {
+        "source": "/speakers",
+        "headers": [
+          {
+            "key": "Link",
+            "value": "</bower_components/webcomponentsjs/webcomponents-loader.js>;rel=preload;as=script,</bower_components/webcomponentsjs/custom-elements-es5-adapter.js>;rel=preload;as=script,</elements/polymer-summit.html>;rel=preload;as=document,</elements/speakers-page.html>;rel=preload;as=document,</data/speakers.json>;rel=preload"
+          }
+        ]
+      },
+      {
+        "source": "/service-worker.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=0"
+          }
+        ]
       }
     ]
   }
